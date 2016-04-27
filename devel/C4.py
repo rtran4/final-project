@@ -1,17 +1,18 @@
 from random import randint
 
-
-class connectFour:
+class connectFour:   
     def __init__ (self, rows = 7, col = 8, fourInRow = 4):
+        #Creates the board
         self.col = col
         self.win = fourInRow
         self.rows = rows
         self.board = [['.'] * rows for _ in range(col)]
     
     def insert(self, column, color):
+        #Inserts the player's color when they choose a column
         c = self.board[column]
         if c[0] != '.':
-            raise Exception('Column is full')
+            raise Exception('NO MORE!')
         i = -1
         while c[i] != '.':
             i -= 1
@@ -19,6 +20,7 @@ class connectFour:
         self.checkWinner
 
     def checkWinner(self):
+        #Checking for any winners on the board
         print('Checking if ' + player + ' is a winner...')
         w = self.Winner()
         if w:
@@ -29,23 +31,12 @@ class connectFour:
         elif (checkWinner('Y')):
             print('YELLOW WINS!')
 
-        
     def printBoard(self):
+        #Prints the board
         print(' '.join(map(str, range(self.col))))
         for y in range(self.rows):
             print(' '.join(str(self.board[x][y]) for x in range(self.col)))
 
-    def startGame(Player, board):
-        turn = Player
-        for i in range(9):
-            four.printBoard()
-            move = input()
-            if (checkWinner(board, 'R')):
-                print ('RED WINS!')
-                break
-            elif (checkWinner(board, 'Y')):
-                print ('YELLOW WINS!')
-                break
 
              
 if __name__ == '__main__':
